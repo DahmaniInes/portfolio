@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm install --legacy-peer-deps && vite build",
+    "build": "vite build",
+    "preinstall": "npm config set legacy-peer-deps true",
     "preview": "vite preview"
   },
+  
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@react-three/drei": "^9.56.24",
