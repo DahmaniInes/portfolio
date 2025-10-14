@@ -114,6 +114,62 @@
   -webkit-text-fill-color: transparent;
 }
 
+.purple-text-gradient {
+  background: #8e2de2; /* fallback */
+  background: -webkit-linear-gradient(to top, #8e2de2, #4a00e0);
+  background: linear-gradient(to top, #8e2de2, #4a00e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.teal-text-gradient {
+  background: #11998e;
+  background: -webkit-linear-gradient(to top, #11998e, #38ef7d);
+  background: linear-gradient(to top, #11998e, #38ef7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.yellow-text-gradient {
+  background: #f7971e;
+  background: -webkit-linear-gradient(to top, #f7971e, #ffd200);
+  background: linear-gradient(to top, #f7971e, #ffd200);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.red-text-gradient {
+  background: #ff416c;
+  background: -webkit-linear-gradient(to top, #ff416c, #ff4b2b);
+  background: linear-gradient(to top, #ff416c, #ff4b2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+.cyan-text-gradient {
+  background: #00c6ff;
+  background: -webkit-linear-gradient(to top, #00c6ff, #0072ff);
+  background: linear-gradient(to top, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+.pink-purple-text-gradient {
+  background: #ff6a00;
+  background: -webkit-linear-gradient(to top, #ff6a00, #e100ff);
+  background: linear-gradient(to top, #ff6a00, #e100ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;

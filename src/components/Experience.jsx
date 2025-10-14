@@ -6,7 +6,6 @@ import {
 import { motion } from "framer-motion";
 
 import "react-vertical-timeline-component/style.min.css";
-
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
@@ -61,10 +60,10 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+        My Professional Projects
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work Experience.
+        Career Highlights
         </h2>
       </motion.div>
 

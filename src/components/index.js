@@ -1,4 +1,4 @@
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
+import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas, MouseTrail } from './canvas';
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
@@ -11,6 +11,7 @@ import CanvasLoader from "./Loader";
 
 
 export {
+  MouseTrail,
   Hero,
   Navbar,
   About,
