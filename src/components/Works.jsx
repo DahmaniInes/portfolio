@@ -18,7 +18,12 @@ const ProjectCard = ({
 }) => {
   return (
     <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      // Changement : Supprimez le délai index * 0.5 (géré par le stagger du parent)
+      // et forcez un délai initial à 0 pour que le stagger prenne le relais
+      variants={fadeIn("up", "spring", 0, 0.75)} // Délai à 0
+      initial="hidden" // Ajout explicite pour forcer l'état initial
+      whileInView="show" // Déclencheur individuel en backup
+      viewport={{ once: true, amount: 0.1 }}
       whileHover={{ scale: 1.05, rotate: 5 }}
       className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer'
     >
@@ -70,27 +75,54 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  // Ajout : Variantes pour le conteneur avec staggerChildren
+  const containerVariants = {
+    hidden: { opacity: 1 }, // Pas d'opacité 0 pour le conteneur, juste pour les enfants
+    show: {
+      transition: {
+        staggerChildren: 0.07, // Décalage de 70ms entre chaque carte
+      },
+    },
+  };
+
   return (
     <>
-      <motion.div variants={textVariant()}>
+      {/* Fix : Ajout initial={false} et whileInView pour trigger indépendant sur mobile */}
+      <motion.div 
+        variants={textVariant()}
+        initial={false}
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         <p className={`${styles.sectionSubText} `}>My Academic Highlights</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
       </motion.div>
 
       <div className='w-full flex'>
+        {/* Fix : Même ajout pour le paragraphe */}
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
+          initial={false}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
           These academic projects demonstrate the skills and knowledge I acquired during my studies. Each project highlights practical applications of technologies, problem-solving abilities, and my capacity to implement innovative solutions, often through effective collaboration in team settings.
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      {/* Changement principal : Enveloppez dans motion.div avec stagger */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }} // Déclenche tôt sur mobile
+        className='mt-20 flex flex-wrap gap-7'
+      >
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };
