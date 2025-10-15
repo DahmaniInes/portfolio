@@ -9,13 +9,18 @@ import { styles } from "../styles";
 const Tech = () => {
   return (
     <>
-      {/* Titre et sous-titre */}
-      <motion.div variants={textVariant()}>
+      {/* Titre et sous-titre – Animation textVariant() intacte, juste trigger fixé pour mobile */}
+      <motion.div 
+        variants={textVariant()}  // ← Animation garde ici : slide up + spring
+        initial={false}  // ← Fix : Skip hidden au load
+        whileInView="show"  // ← Fix : Trigger fiable
+        viewport={{ once: true, amount: 0.1 }}  // ← Fix : Dès 10% visible (mobile-friendly)
+      >
         <p className={styles.sectionSubText}>My Technical Skills</p>
         <h2 className={styles.sectionHeadText}>Technologies.</h2>
       </motion.div>
 
-      {/* Grille des cards */}
+      {/* Grille des cards – Pas d'animation Framer ici, donc inchangée */}
       <div className="mt-20 flex flex-wrap justify-center gap-10">
         {technologies.map((technology) => (
           <div key={technology.name}>
